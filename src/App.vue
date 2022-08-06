@@ -1,11 +1,7 @@
 <script setup>
-import News from "./components/News.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <News />
-    </div>
-  </header>
+  <RouterView />
 </template>

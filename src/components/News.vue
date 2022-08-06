@@ -1,7 +1,9 @@
 <template>
     <ul>
       <li v-for="item in news" :key="item.id">
-        <p>{{ item.title }}</p>
+        <RouterLink :to="{ name: 'article', params: { id: item.id }}">
+          <p>{{ item.title }}</p>
+        </RouterLink>
         <p>{{ item.full_text }}</p>
         <p>Rating: {{ item.rating }}</p>
         <button v-on:click="() => deleteItem(item.id)">X</button>
@@ -12,6 +14,7 @@
 
 <script>
 import Observer from "./Observer.vue";
+import { RouterLink } from "vue-router";
 
 const BASE_URL = 'http://127.0.0.1:8000';
 
