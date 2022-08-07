@@ -31,9 +31,23 @@ export default {
    }
   },
   methods: {
-    deleteItem: function(id) {
-      const deleteIndex = this.news.findIndex((item) => item.id === id);
-      this.news.splice(deleteIndex, 1);
+    deleteItem: async function(id) {
+      const res = await fetch(`${BASE_URL}/delete-news`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin',
+        mode: 'cors',
+        body: JSON.stringify({ id }),
+      }
+    );
+      const { data } = await res.json();
+      console.log(data);
+      if (data.data === 'ok') {
+        const deleteIndex = this.news.findIndex((item) => item.id === id);
+        this.news.splice(deleteIndex, 1);
+      }
     },
     async intersected() {
       const res = await fetch(`${BASE_URL}/abc?page=${this.page}&limit=${this.limit}`);
