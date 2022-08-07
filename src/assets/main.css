@@ -1,35 +1,25 @@
-@import "./base.css";
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+ul, li {
+  padding: 0;
+  margin: 0;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.news_list {
+  list-style-type: none;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.news_item {
+  border: 1px solid #c3acac;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.news_item:not(:last-child) {
+  margin-bottom: 10px;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.news_delete-btn {
+  border: 1px solid #c3acac;
+  background-color: #ececec;
+	border-radius: 5px;
+  padding: 3px 6px;
 }
